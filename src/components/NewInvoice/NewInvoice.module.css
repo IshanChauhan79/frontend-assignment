@@ -1,0 +1,32 @@
+.NewInvoice {
+  width: 70rem;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+.Title {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  text-decoration: underline;
+}
+.Company {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.Payment {
+  margin-bottom: 2rem;
+}
+
+.Notes {
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+  text-decoration: underline;
+  color: green;
+}
+.SubmitButton {
+  display: flex;
+  justify-content: center;
+}

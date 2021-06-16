@@ -1,0 +1,15 @@
+.Text{
+    font-size: 1.6rem;
+    border:0;
+    /* border-bottom:1px solid blue; */
+    padding:0.3em;
+    margin:0.3em 0.8;
+    border-radius: 0.5rem;;
+}
+.Text:hover{
+    background-color: lightgrey;
+}
+.Text:focus{
+    background-color: lightgrey;
+    outline: none;
+}

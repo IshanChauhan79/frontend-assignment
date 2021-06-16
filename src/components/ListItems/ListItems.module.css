@@ -1,0 +1,63 @@
+.ListItemsTable {
+  font-size: 1.6rem;
+  margin-bottom: 1em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.TitleRow {
+  padding: 0.5rem;
+  display: flex;
+  color: white;
+  background-color: blue;
+  justify-content: space-between;
+}
+.ListItem {
+  position: relative;
+  padding: 0.5rem;
+  display: flex;
+  border-bottom: 1px solid blue;
+  margin-top: 1em;
+  /* justify-content: space-between; */
+}
+.Desription {
+  width: 50%;
+}
+.Rate {
+  width: 15%;
+}
+.Qty {
+  width: 15%;
+}
+.Amount {
+  width: 20%;
+}
+.Delete {
+  position: absolute;
+  right: -1.5rem;
+}
+.Delete:hover {
+  color: red;
+}
+
+.BottomRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  padding: 0.5rem;
+}
+.AddItem {
+  text-decoration: underline;
+  color: rgb(27, 207, 27);
+  width: 50%;
+}
+.Total {
+  color: white;
+  font-size: 2.2rem;
+  padding: 0.2em;
+  background-color: blue;
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
