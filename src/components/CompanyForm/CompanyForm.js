@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./CompanyForm.module.css";
-import Input from "../UI/FormElements/Input";
 
 const CompanyForm = (props) => {
   let form = (
@@ -14,7 +13,6 @@ const CompanyForm = (props) => {
       <div className={classes.CompanyForm}>
         <div className={classes.Companytype}>Bill TO :</div>
         {props.children}
-
       </div>
     );
   }
