@@ -9,6 +9,7 @@ function App() {
       <Header />
       {/* <Invoices /> */}
       <NewInvoice />
+
     </div>
   );
 }

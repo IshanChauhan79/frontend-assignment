@@ -3,6 +3,56 @@ import classes from "./ListItems.module.css";
 import Input from "../UI/FormElements/Input";
 
 const ListItems = (props) => {
+  let totalAmount = 0;
+  let ListItems = props.items.map((item) => {
+    totalAmount += item.amount;
+    return (
+      <div className={classes.ListItem} key={item.id}>
+        <div className={classes.Desription}>
+          <Input
+            id={item.id}
+            type="text"
+            placeholder="Description"
+            width="100%"
+            value={item.itemDesc}
+            changed={props.descriptionChanged}
+            required
+          />
+        </div>
+        <div className={classes.Qty}>
+          <Input
+            id={item.id}
+            type="number"
+            placeholder="Qty"
+            width="100%"
+            value={item.qty}
+            changed={props.qtyChanged}
+            required
+          />
+        </div>
+        <div className={classes.Rate}>
+          <Input
+            id={item.id}
+            type="number"
+            placeholder="Rate"
+            width="100%"
+            value={item.rate}
+            changed={props.rateChanged}
+            required
+          />
+        </div>
+        <div className={classes.Amount}>{item.amount}</div>
+        <div
+          className={classes.Delete}
+          onClick={() => {
+            props.deleteClicked(item.id);
+          }}
+        >
+          <i className="far fa-trash-alt"></i>
+        </div>
+      </div>
+    );
+  });
   return (
     <React.Fragment>
       <div className={classes.ListItemsTable}>
@@ -12,27 +62,15 @@ const ListItems = (props) => {
           <div className={classes.Rate}>Rate </div>
           <div className={classes.Amount}>Amount </div>
         </div>
-        <div className={classes.ListItem}>
-          <div className={classes.Desription}>
-            <Input type="text" placeholder="Description" width="100%" />
-          </div>
-          <div className={classes.Qty}>
-            <Input type="text" placeholder="Qty" width="100%" />
-          </div>
-          <div className={classes.Rate}>
-            <Input type="text" placeholder="Rate" width="100%" />
-          </div>
-          <div className={classes.Amount}>
-            <Input type="text" placeholder="Amount" width="100%" />
-          </div>
-          <div className={classes.Delete}>D</div>
-        </div>
+        {ListItems}
 
         <div className={classes.BottomRow}>
-          <div className={classes.AddItem}>+ Add List Item</div>
+          <div className={classes.AddItem} onClick={props.addClicked}>
+            + Add List Item
+          </div>
           <div className={classes.Total}>
             <div style={{ fontWeight: "600" }}>Total Amount:</div>
-            <div>10000</div>
+            <div>{totalAmount}</div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ const DropDownInput = (props) => {
     <div>
       <label className={classes.Label} htmlFor={props.name}>{props.label}</label>
 
-      <select name={props.name} className={classes.DropDownInput} >
+      <select name={props.name} className={classes.DropDownInput} onChange={(event)=>{props.changed(event)}} >
         {options}
       </select>
     </div>

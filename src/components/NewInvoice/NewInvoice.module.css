@@ -1,8 +1,8 @@
 .NewInvoice {
-  width: 70rem;
   background-color: white;
   padding: 3rem;
   border-radius: 1rem;
+  max-width: 70rem;
 }
 .Title {
   font-size: 3rem;

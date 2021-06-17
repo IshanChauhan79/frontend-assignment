@@ -17,6 +17,7 @@ code {
 }
 * {
   box-sizing: border-box;
+  white-space: nowrap;
 }
 /* table,td,th{
   border:1px solid blue;
