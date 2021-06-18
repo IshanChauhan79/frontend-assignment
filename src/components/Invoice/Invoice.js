@@ -5,10 +5,14 @@ import CompanyForm from "../CompanyForm/CompanyForm";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 
+//show specific inovoice-----------------------------------------------------------------------------
 const Invoice = (props) => {
   const param = useParams();
+  
+  //get data from redux
   const invoiceData = useSelector((state) => state.invoices);
 
+  // find the slected invoice to be opened
   let invoiceIndex = invoiceData.findIndex((el) => el.id === param.id);
 
   const invoice = invoiceData[invoiceIndex];

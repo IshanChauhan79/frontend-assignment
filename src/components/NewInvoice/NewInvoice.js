@@ -13,11 +13,13 @@ import { useHistory } from "react-router";
 
 import { dummyInvoiceData, newListItem } from "../../data/newInvoice";
 
+// component for new Invoice form---------------------------------------------------------------------------------
 const NewInvoice = (props) => {
-  const dispatch=useDispatch();
-  const history=useHistory();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const [invoiceForm, setInvoiceForm] = useState(dummyInvoiceData);
 
+  //all input change handlers---------------------------------------------------------------------------
   const myCompanyChanged = (event) => {
     setInvoiceForm((prev) => ({ ...prev, myCompany: event.target.value }));
   };
@@ -73,13 +75,21 @@ const NewInvoice = (props) => {
   const rateChanged = (event, id) => {
     let itemList = [...invoiceForm.listItems];
     let itemIndex = itemList.findIndex((el) => el.id === id);
-    itemList[itemIndex] = { ...itemList[itemIndex], rate: event.target.value,amount:itemList[itemIndex].qty*event.target.value };
+    itemList[itemIndex] = {
+      ...itemList[itemIndex],
+      rate: event.target.value,
+      amount: itemList[itemIndex].qty * event.target.value,
+    };
     setInvoiceForm((prev) => ({ ...prev, listItems: itemList }));
   };
   const qtyChanged = (event, id) => {
     let itemList = [...invoiceForm.listItems];
     let itemIndex = itemList.findIndex((el) => el.id === id);
-    itemList[itemIndex] = { ...itemList[itemIndex], qty: event.target.value,amount:itemList[itemIndex].rate*event.target.value };
+    itemList[itemIndex] = {
+      ...itemList[itemIndex],
+      qty: event.target.value,
+      amount: itemList[itemIndex].rate * event.target.value,
+    };
     setInvoiceForm((prev) => ({ ...prev, listItems: itemList }));
   };
   const delelteItemClicked = (id) => {
@@ -91,12 +101,14 @@ const NewInvoice = (props) => {
     itemList.push({ ...newListItem, id: Math.random().toString() });
     setInvoiceForm((prev) => ({ ...prev, listItems: itemList }));
   };
-  const onSubmitForm=(event)=>{
-    event.preventDefault();
-    dispatch(invoiceActions.addInvoice({data:invoiceForm}))
-    history.push('/invoices')
-  }
 
+  //submit input change handlers---------------------------------------------------------------------------------------------------
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    dispatch(invoiceActions.addInvoice({ data: invoiceForm }));
+    history.push("/invoices");
+  };
+  // return the invoice component containing form---------------------------------------------------------------------------
   return (
     <InvoiceContainer>
       <div className={classes.NewInvoice}>
@@ -173,7 +185,6 @@ const NewInvoice = (props) => {
             qtyChanged={qtyChanged}
             deleteClicked={delelteItemClicked}
             addClicked={addItemClicked}
-            
           />
           <div className={classes.Payment}>
             <DropDownInput

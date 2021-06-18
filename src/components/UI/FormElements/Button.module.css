@@ -2,10 +2,10 @@
   font-size: 2rem;
   color: white;
   padding: 0.5em;
-  background-color: rgb(61, 61, 255);
+  background-color: var(--clr-blue-700);
   border: 0;
   border-radius: 0.3em;
 }
 .Button:hover {
-  background-color: blue;
+  background-color: var(--clr-blue-600);
 }

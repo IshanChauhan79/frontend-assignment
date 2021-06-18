@@ -3,7 +3,7 @@
   max-width: 80rem;
   min-width: 38rem;
   font-size: 1.6rem;
-  background-color: white;
+  background-color: var(--clr-wb-100);
   margin: 1em;
   padding: 1em;
   border-radius: 0.5em;
@@ -12,7 +12,7 @@
   justify-content: space-between;
 }
 .Late {
-  background-color: red !important;
+  background-color: var(--clr-red-300) !important;
 }
 .ClientDetails {
   font-size: 1.4rem;
@@ -26,7 +26,4 @@
 .Amount {
   font-size: 2.4rem;
   font-weight: 600;
-}
-.Status {
-  color: blue;
 }

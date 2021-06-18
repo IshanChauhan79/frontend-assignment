@@ -7,6 +7,7 @@ import { Provider } from "react-redux";
 import store from "./Store/index";
 import reportWebVitals from "./reportWebVitals";
 
+//connect with redux and react router
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./CompanyForm.module.css";
 
+//return a parent div for comapny details 
 const CompanyForm = (props) => {
   let form = (
     <div className={classes.CompanyForm}>

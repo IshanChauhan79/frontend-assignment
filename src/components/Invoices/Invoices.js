@@ -5,23 +5,26 @@ import { useHistory, useLocation } from "react-router";
 import { useSelector } from "react-redux";
 import CompanyForm from "../CompanyForm/CompanyForm";
 
+// return list of all invoices--------------------------------------------------------------------
 const Invoices = (props) => {
   const location = useLocation();
   const history = useHistory();
+
+  //get data from redux
   const invoiceData = useSelector((state) => state.invoices);
-  console.log(invoiceData);
+
+  // change route if any invoice is clicked
   const onclickInvoice = (id) => {
     history.push(location.pathname + "/" + id);
   };
 
   const allInvoices = invoiceData.map((data) => {
-    const date=new Date(data.dueDate);
-    const todaysDate=new Date();
-    let late=date<todaysDate   
-    const InvoiceClass = [
-      classes.Invoice,
-      data.status === "Pending" && late ? classes.Late : null,
-    ];
+    // check if due date is less then today's date , then show the invoice in red box as a warning
+    const date = new Date(data.dueDate);
+    const todaysDate = new Date();
+    let late = date < todaysDate;
+    let lateColor = data.status === "Pending" && late;
+    const InvoiceClass = [classes.Invoice, lateColor ? classes.Late : null];
     return (
       <div
         className={InvoiceClass.join(" ")}
@@ -40,7 +43,14 @@ const Invoices = (props) => {
         </div>
         <div className={classes.Paymentstatus}>
           <div className={classes.Amount}>Rs {data.totalAmount}</div>
-          <div className={classes.Status}>{data.status}</div>
+          <div
+            style={{
+              fontWeight: lateColor ? "700" : "500",
+              color: lateColor ? "red" : "var(--clr-blue-600)",
+            }}
+          >
+            {data.status}
+          </div>
         </div>
       </div>
     );

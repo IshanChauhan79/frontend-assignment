@@ -6,9 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
-  background-color: #8422f3;
+  background-color: hsl(268, 90%, 74%);
   min-width: 40rem;
-  /* min-width: 700px; */
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -28,21 +27,22 @@ code {
   box-sizing: border-box;
   white-space: nowrap;
 }
-/* table,td,th{
-  border:1px solid blue;
-} */
+
 :root {
   font-size: 62.5%;
-  /* --clr-wb-100: hsl(0, 0%, 100%); */
-  /* black ---------------*/
-  /* --clr-wb-900: hsl(0, 0%, 0%);
-  --clr-wb-800:hsl(0, 0%, 8%);
-  --clr-wb-500:hsl(0, 0%, 30%);
-  --clr-wb-450:hsl(0, 0%, 37%);
-  --clr-wb-400:hsl(0, 0%, 45%);
-  --clr-wb-200:hsl(0, 0%, 80%); */
+  /* white and black--------- */
+  --clr-wb-900:hsl(0, 0%, 0%);
+  --clr-wb-100:hsl(0, 0%, 100%);
+  /* blue----------- */
+  --clr-blue-700:hsl(240, 100%, 62%);
+  --clr-blue-600:hsl(203, 100%, 40%);
+  
 
-  /* Blue----------------- */
-  /* --clr-blue-700:hsl(203, 100%, 40%);
-  --clr-blue-500:hsl(203, 100%, 60%); */
+  --clr-blue-400:hsl(203, 100%, 50%);
+  /* red---------- */
+  --clr-red-400:hsl(0, 100%, 70%);
+  --clr-red-300:hsl(0 ,100%, 83%);
+
+  /* green------ */
+  --clr-green-400:hsl(120, 100%, 40%);
 }

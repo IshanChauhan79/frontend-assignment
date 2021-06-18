@@ -9,17 +9,16 @@
 .TitleRow {
   padding: 0.5rem;
   display: flex;
-  color: white;
-  background-color: blue;
+  color: var(--clr-wb-100);
+  background-color: var(--clr-blue-400);
   justify-content: space-between;
 }
 .ListItem {
   position: relative;
   padding: 0.5rem;
   display: flex;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid var(--clr-blue-400);
   margin-top: 1em;
-  /* justify-content: space-between; */
 }
 .Desription {
   width: 50%;
@@ -33,7 +32,7 @@
 .Amount {
   width: 20%;
   text-align: right;
-  padding-right:4px;
+  padding-right: 4px;
 }
 .Delete {
   position: absolute;
@@ -52,17 +51,17 @@
 }
 .AddItem {
   text-decoration: underline;
-  color: rgb(27, 207, 27);
+  color: var(--clr-green-400);
   cursor: pointer;
 }
 .Total {
-  color: white;
+  color: var(--clr-wb-100);
   font-size: 2.2rem;
   padding: 0.2em;
-  background-color: blue;
+  background-color: var(--clr-blue-400);
   display: flex;
   justify-content: space-evenly;
 }
-.Total > div{
-  padding:0 0.5rem;
+.Total > div {
+  padding: 0 0.5rem;
 }

@@ -24,7 +24,7 @@
   font-size: 1.4rem;
   margin-bottom: 1em;
   text-decoration: underline;
-  color: green;
+  color: var(--clr-green-400);
 }
 .SubmitButton {
   display: flex;
