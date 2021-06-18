@@ -9,10 +9,11 @@
     justify-content:flex-end;
     padding-right:3rem;
 }
-.Header > div{
+.Header > a{
     color:White;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     padding:0.4em;
+    text-decoration: none;
     /* border-left: 1px solid grey;
     border-right: 1px solid grey; */
 }

@@ -2,10 +2,18 @@ import React from "react";
 import classes from "./Invoice.module.css";
 import InvoiceContainer from "../UI/InvoiceContainer/InvoiceContainer";
 import CompanyForm from "../CompanyForm/CompanyForm";
-import { dummyInvoiceData } from "../../data/newInvoice";
+import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 
 const Invoice = (props) => {
-  const ListItems = dummyInvoiceData.listItems.map((item) => {
+  const param = useParams();
+  const invoiceData = useSelector((state) => state.invoices);
+
+  let invoiceIndex = invoiceData.findIndex((el) => el.id === param.id);
+
+  const invoice = invoiceData[invoiceIndex];
+
+  const ListItems = invoice.listItems.map((item) => {
     return (
       <div className={classes.ListItem} key={item.id}>
         <div className={classes.Desription}>{item.itemDesc}</div>
@@ -21,15 +29,15 @@ const Invoice = (props) => {
         <div className={classes.Title}>INVOICE</div>
         <div className={classes.Company}>
           <CompanyForm>
-            <div>{dummyInvoiceData.myCompany}</div>
-            <div>{dummyInvoiceData.myAddress}</div>
-            <div>{dummyInvoiceData.myCity}</div>
+            <div>{invoice.myCompany}</div>
+            <div>{invoice.myAddress}</div>
+            <div>{invoice.myCity}</div>
           </CompanyForm>
           <CompanyForm client>
-            <div>{dummyInvoiceData.clientName}</div>
-            <div>{dummyInvoiceData.clientAddress}</div>
-            <div>{dummyInvoiceData.clientCity}</div>
-            <div>{dummyInvoiceData.clientEmail}</div>
+            <div>{invoice.clientName}</div>
+            <div>{invoice.clientAddress}</div>
+            <div>{invoice.clientCity}</div>
+            <div>{invoice.clientEmail}</div>
           </CompanyForm>
         </div>
         <div className={classes.ListItemsTable}>
@@ -43,29 +51,29 @@ const Invoice = (props) => {
           <div className={classes.BottomRow}>
             <div className={classes.Total}>
               <div style={{ fontWeight: "600" }}>Total Amount:</div>
-              <div>{dummyInvoiceData.totalAmount}</div>
+              <div>{invoice.totalAmount}</div>
             </div>
           </div>
         </div>
 
         <div className={classes.Payment}>
           <div style={{ textDecoration: "underline" }}>Payment Method: </div>
-          <div>{dummyInvoiceData.payment}</div>
+          <div>{invoice.payment}</div>
         </div>
         <div className={classes.Payment}>
           <div style={{ textDecoration: "underline" }}>Status: </div>
           <div
             style={{
-              color: dummyInvoiceData.status === "Pending" ? "red" : "black",
+              color: invoice.status === "Pending" ? "red" : "black",
             }}
           >
-            {dummyInvoiceData.status}
+            {invoice.status}
           </div>
         </div>
 
         <div>
           <div className={classes.Notes}>Notes: </div>
-          <div className={classes.NotesText}>{dummyInvoiceData.notes}</div>
+          <div className={classes.NotesText}>{invoice.notes}</div>
         </div>
       </div>
     </InvoiceContainer>

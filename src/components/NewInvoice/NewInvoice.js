@@ -7,10 +7,15 @@ import DateInput from "../UI/FormElements/DateInput";
 import DropDownInput from "../UI/FormElements/DropDownInput";
 import Input from "../UI/FormElements/Input";
 import Button from "../UI/FormElements/Button";
+import { useDispatch } from "react-redux";
+import { invoiceActions } from "../../Store/invoice-slice";
+import { useHistory } from "react-router";
 
 import { dummyInvoiceData, newListItem } from "../../data/newInvoice";
 
 const NewInvoice = (props) => {
+  const dispatch=useDispatch();
+  const history=useHistory();
   const [invoiceForm, setInvoiceForm] = useState(dummyInvoiceData);
 
   const myCompanyChanged = (event) => {
@@ -31,13 +36,13 @@ const NewInvoice = (props) => {
   const clientCityChanged = (event) => {
     setInvoiceForm((prev) => ({
       ...prev,
-      clientCityAddress: event.target.value,
+      clientCity: event.target.value,
     }));
   };
   const clientEmailChanged = (event) => {
     setInvoiceForm((prev) => ({
       ...prev,
-      clientEmailAddress: event.target.value,
+      clientEmail: event.target.value,
     }));
   };
 
@@ -86,12 +91,17 @@ const NewInvoice = (props) => {
     itemList.push({ ...newListItem, id: Math.random().toString() });
     setInvoiceForm((prev) => ({ ...prev, listItems: itemList }));
   };
-  console.log(invoiceForm);
+  const onSubmitForm=(event)=>{
+    event.preventDefault();
+    dispatch(invoiceActions.addInvoice({data:invoiceForm}))
+    history.push('/invoices')
+  }
+
   return (
     <InvoiceContainer>
       <div className={classes.NewInvoice}>
         <div className={classes.Title}>INVOICE</div>
-        <form>
+        <form onSubmit={onSubmitForm}>
           <div className={classes.Company}>
             <CompanyForm>
               <Input
@@ -110,7 +120,7 @@ const NewInvoice = (props) => {
               />
               <Input
                 type="text"
-                placeholder="City Name"
+                placeholder="City,State"
                 width="100%"
                 changed={myCityChanged}
                 required
@@ -133,7 +143,7 @@ const NewInvoice = (props) => {
               />
               <Input
                 type="text"
-                placeholder="City Name"
+                placeholder="City,State"
                 width="100%"
                 changed={clientCityChanged}
               />

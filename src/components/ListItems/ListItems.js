@@ -4,7 +4,7 @@ import Input from "../UI/FormElements/Input";
 
 const ListItems = (props) => {
   let totalAmount = 0;
-  let ListItems = props.items.map((item) => {
+  let ListItems = props.items.map((item,i) => {
     totalAmount += item.amount;
     return (
       <div className={classes.ListItem} key={item.id}>
@@ -42,14 +42,14 @@ const ListItems = (props) => {
           />
         </div>
         <div className={classes.Amount}>{item.amount}</div>
-        <div
+        {i>0?<div
           className={classes.Delete}
           onClick={() => {
             props.deleteClicked(item.id);
           }}
         >
           <i className="far fa-trash-alt"></i>
-        </div>
+        </div>:null}
       </div>
     );
   });
